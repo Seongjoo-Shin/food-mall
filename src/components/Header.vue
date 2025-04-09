@@ -5,7 +5,7 @@
     >
       <!-- 로고 -->
       <div class="d-flex align-items-center">
-        <img src="@/assets/logo.png" alt="식봄 로고" style="height: 30px" />
+        <img src="@/assets/logo.png" alt="식봄 로고" style="height: 40px" />
       </div>
 
       <!-- 검색창 -->
