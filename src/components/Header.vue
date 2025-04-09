@@ -5,7 +5,7 @@
     >
       <!-- 로고 -->
       <div class="d-flex align-items-center">
-        <img src="@/assets/logo.png" alt="식봄 로고" style="height: 40px" />
+        <img src="@/assets/logo.png" alt="식봄 로고" style="height: 30px" />
       </div>
 
       <!-- 검색창 -->
@@ -22,7 +22,7 @@
 
       <!-- 유저 기능 -->
       <div class="d-flex align-items-center gap-3">
-        <a href="#" class="text-dark text-decoration-none">마이식봄</a>
+        <a href="#" class="text-dark text-decoration-none">마이승현</a>
         <a href="#" class="text-dark text-decoration-none">최근구매</a>
         <a href="#" class="text-dark text-decoration-none">장바구니</a>
       </div>
