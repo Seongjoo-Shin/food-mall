@@ -1,11 +1,13 @@
 <template>
-  <header class="border-bottom shadow-sm bg-white">
+  <header class="border-bottom shadow-sm bg-white position-relative">
     <div
       class="container py-2 d-flex justify-content-between align-items-center"
     >
       <!-- 로고 -->
       <div class="d-flex align-items-center">
-        <img src="@/assets/logo.png" alt="식봄 로고" style="height: 40px" />
+        <router-link to="/">
+          <img src="@/assets/logo.png" alt="식봄 로고" style="height: 40px" />
+        </router-link>
       </div>
 
       <!-- 검색창 -->
@@ -22,9 +24,15 @@
 
       <!-- 유저 기능 -->
       <div class="d-flex align-items-center gap-3">
-        <a href="#" class="text-dark text-decoration-none">마이승현</a>
-        <a href="#" class="text-dark text-decoration-none">최근구매</a>
-        <a href="#" class="text-dark text-decoration-none">장바구니</a>
+        <router-link to="/mypage" class="text-dark text-decoration-none"
+          >마이승현</router-link
+        >
+        <router-link to="/recent" class="text-dark text-decoration-none"
+          >최근구매</router-link
+        >
+        <router-link to="/cart" class="text-dark text-decoration-none"
+          >장바구니</router-link
+        >
       </div>
     </div>
 
@@ -34,24 +42,39 @@
         class="container py-2 d-flex justify-content-between align-items-center"
       >
         <div class="d-flex gap-4">
-          <a href="#" class="fw-bold text-dark">☰ 전체 카테고리</a>
-          <a href="#" class="text-dark">식봄 기획전</a>
-          <a href="#" class="text-dark">직배송 업체</a>
-          <a href="#" class="text-dark">업종 찾기</a>
-          <a href="#" class="text-dark">지역 찾기</a>
+          <!-- 전체 카테고리 -->
+          <button
+            @click="toggleCategory"
+            class="fw-bold text-dark btn p-0 border-0 bg-transparent"
+          >
+            ☰ 전체 카테고리
+          </button>
+          <router-link to="/events" class="text-dark">식봄 기획전</router-link>
+          <router-link to="/vendors" class="text-dark">직배송 업체</router-link>
+          <router-link to="/industry" class="text-dark">업종 찾기</router-link>
+          <router-link to="/region" class="text-dark">지역 찾기</router-link>
         </div>
-        <div class="d-flex gap-3">
-          <a href="#" class="text-dark">로그인</a>
+        <div class="d-flex gap-1">
+          <router-link to="/login" class="text-dark">로그인</router-link>
           <span>/</span>
-          <a href="#" class="text-dark">회원가입</a>
+          <router-link to="/signup" class="text-dark">회원가입</router-link>
         </div>
       </div>
     </div>
+
+    <!-- 전체 카테고리 배너 -->
+    <CategoryBanner v-if="showCategoryBanner" />
   </header>
 </template>
 
 <script setup>
-// 필요한 경우 props나 emits 정의 가능
+import { ref } from "vue";
+import CategoryBanner from "@/components/CategoryBanner.vue";
+
+const showCategoryBanner = ref(false);
+const toggleCategory = () => {
+  showCategoryBanner.value = !showCategoryBanner.value;
+};
 </script>
 
 <style scoped>
