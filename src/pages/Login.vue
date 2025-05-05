@@ -1,6 +1,6 @@
 <template>
   <div
-    class="container d-flex justify-content-center align-items-center min-vh-100 bg-light"
+    class="container d-flex justify-content-center align-items-center min-vh-100"
   >
     <div class="card p-5 shadow-lg" style="max-width: 400px; width: 100%">
       <h3 class="text-center mb-4">로그인</h3>

@@ -2,9 +2,9 @@
   <div class="container py-4">
     <div class="row">
       <!-- 상품 이미지 -->
-      <div class="col-md-5">
+      <div class="col-md-5 p-5">
         <img
-          src="https://placehold.co/200x200"
+          src="https://placehold.co/400x200"
           alt="상품 이미지"
           class="img-fluid"
         />
