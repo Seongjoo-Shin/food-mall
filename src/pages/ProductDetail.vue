@@ -49,39 +49,125 @@
     </div>
 
     <!-- 상품 정보, 구매 정보, 배송 정보, 문의 -->
-    <hr class="my-4" />
-    <ul class="nav nav-tabs">
-      <li class="nav-item">
-        <a class="nav-link active" href="#">상품 설명</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">구매 정보</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">배송 정보</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">상품 문의</a>
+    <ul class="mt-5 nav nav-tabs sticky-top bg-white z-10" style="top: 0">
+      <li class="nav-item" v-for="tab in tabs" :key="tab.key">
+        <span
+          class="nav-link"
+          :class="{ active: activeTab === tab.key }"
+          @click="() => handleTabClick(tab.key)"
+          style="cursor: pointer"
+        >
+          {{ tab.label }}
+        </span>
       </li>
     </ul>
 
+    <!-- 각 섹션 -->
+    <div class="mt-4" ref="descriptionRef">
+      <h4>상품 설명</h4>
+      <div class="col-md-5 p-5">
+        <img
+          src="https://placehold.co/400x2000"
+          alt="상품 이미지"
+          class="img-fluid"
+        />
+      </div>
+    </div>
+    <div class="mt-4" ref="purchaseRef">
+      <h4>구매 정보</h4>
+      <div class="col-md-5 p-5">
+        <img
+          src="https://placehold.co/300x2000"
+          alt="상품 이미지"
+          class="img-fluid"
+        />
+      </div>
+    </div>
+    <div class="mt-4" ref="shippingRef">
+      <h4>배송 정보</h4>
+      <div class="col-md-5 p-5">
+        <img
+          src="https://placehold.co/200x2000"
+          alt="상품 이미지"
+          class="img-fluid"
+        />
+      </div>
+    </div>
+    <div class="mt-4" ref="inquiryRef">
+      <h4>상품 문의</h4>
+      <div class="col-md-5 p-5">
+        <img
+          src="https://placehold.co/100x2000"
+          alt="상품 이미지"
+          class="img-fluid"
+        />
+      </div>
+    </div>
+
     <!-- 하단 공지 이미지 -->
     <div class="mt-4">
-      <img
-        src="https://placehold.co/200x200"
-        alt="배송 공지 이미지"
-        class="img-fluid"
-      />
+      <div class="align-items-center">
+        <span>하단 공지 이미지</span>
+      </div>
     </div>
+  </div>
+
+  <div class="position-fixed" style="bottom: 30px; right: 30px; z-index: 999">
+    <button
+      class="btn btn-outline-primary position-relative rounded-circle"
+      style="width: 60px; height: 60px"
+      @click="goToCart"
+    >
+      🛒
+      <span
+        v-if="cartCount > 0"
+        class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+        style="font-size: 0.75rem"
+      >
+        {{ cartCount }}
+      </span>
+    </button>
   </div>
 </template>
 
 <script setup>
-// 이 페이지는 임시로 정적인 데이터를 사용하고 있습니다.
-</script>
+import { ref } from "vue";
+import { useRouter } from "vue-router";
 
-<style scoped>
-input[type="number"] {
-  max-width: 100px;
-}
-</style>
+const router = useRouter();
+const cartCount = ref(3); // 예시용 담긴 개수 (store에서 불러올 수도 있음)
+
+const goToCart = () => {
+  router.push("/cart");
+};
+const tabs = [
+  { key: "description", label: "상품 설명" },
+  { key: "purchase", label: "구매 정보" },
+  { key: "shipping", label: "배송 정보" },
+  { key: "inquiry", label: "상품 문의" },
+];
+
+const activeTab = ref("description");
+
+// 섹션 refs
+const descriptionRef = ref(null);
+const purchaseRef = ref(null);
+const shippingRef = ref(null);
+const inquiryRef = ref(null);
+
+const sectionRefs = {
+  description: descriptionRef,
+  purchase: purchaseRef,
+  shipping: shippingRef,
+  inquiry: inquiryRef,
+};
+
+// 클릭 시 이동 및 탭 변경
+const handleTabClick = (key) => {
+  activeTab.value = key;
+  const el = sectionRefs[key]?.value;
+  if (el) {
+    el.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+};
+</script>
