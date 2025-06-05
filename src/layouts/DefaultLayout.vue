@@ -3,7 +3,7 @@
     <Header />
     <IconSection />
 
-    <main class="container my-4">
+    <main class="container my-3">
       <router-view />
     </main>
     <Footer />
