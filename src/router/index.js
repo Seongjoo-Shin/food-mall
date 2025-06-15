@@ -4,9 +4,9 @@ import { createRouter, createWebHistory } from "vue-router";
 import Home from "@/pages/Home.vue";
 import Login from "@/pages/Login.vue";
 import ProductDetail from "@/pages/ProductDetail.vue";
-// import Signup from "@/pages/SignupView.vue";
+import Register from "@/pages/Register.vue";
 import Cart from "@/pages/CartView.vue";
-// import MyPage from "@/pages/MyPage.vue";
+import MyPage from "@/pages/MyPage.vue";
 // import Recent from "@/pages/RecentView.vue";
 
 const routes = [
@@ -14,8 +14,8 @@ const routes = [
   { path: "/login", name: "Login", component: Login },
   { path: "/product/:id", name: "ProductDetail", component: ProductDetail },
   { path: "/cart", name: "Cart", component: Cart },
-  // { path: "/signup", name: "Signup", component: Signup },
-  // { path: "/mypage", name: "MyPage", component: MyPage },
+  { path: "/mypage", name: "MyPage", component: MyPage },
+  { path: "/register", name: "Register", component: Register },
   // { path: "/recent", name: "Recent", component: Recent },
 ];
 

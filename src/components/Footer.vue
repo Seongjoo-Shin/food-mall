@@ -1,7 +1,15 @@
 <template>
-  <footer class="bg-light py-4 mt-auto border-top">
-    <div class="container text-center text-muted small">
-      © 2025 식봄. 모든 권리 보유.
-    </div>
+  <footer class="bg-light text-center py-3">
+    <div>© 2025 Freshmoa. All rights reserved.</div>
   </footer>
 </template>
+
+<script setup>
+// 별도 스크립트 없음
+</script>
+
+<style scoped>
+footer {
+  border-top: 1px solid #ddd;
+}
+</style>

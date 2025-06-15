@@ -57,7 +57,7 @@
         <div class="d-flex gap-1">
           <router-link to="/login" class="text-dark">로그인</router-link>
           <span>/</span>
-          <router-link to="/signup" class="text-dark">회원가입</router-link>
+          <router-link to="/register" class="text-dark">회원가입</router-link>
         </div>
       </div>
     </div>
