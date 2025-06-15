@@ -27,9 +27,6 @@
         <router-link to="/mypage" class="text-dark text-decoration-none"
           >마이승현</router-link
         >
-        <router-link to="/recent" class="text-dark text-decoration-none"
-          >최근구매</router-link
-        >
         <router-link to="/cart" class="text-dark text-decoration-none"
           >장바구니</router-link
         >

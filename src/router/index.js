@@ -7,7 +7,6 @@ import ProductDetail from "@/pages/ProductDetail.vue";
 import Register from "@/pages/Register.vue";
 import Cart from "@/pages/CartView.vue";
 import MyPage from "@/pages/MyPage.vue";
-// import Recent from "@/pages/RecentView.vue";
 
 const routes = [
   { path: "/", component: Home },
@@ -16,7 +15,6 @@ const routes = [
   { path: "/cart", name: "Cart", component: Cart },
   { path: "/mypage", name: "MyPage", component: MyPage },
   { path: "/register", name: "Register", component: Register },
-  // { path: "/recent", name: "Recent", component: Recent },
 ];
 
 const router = createRouter({
